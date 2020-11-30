@@ -1,0 +1,47 @@
+<h1 class="text-center"> {{ title }} </h1>
+<div class="container, text-center">
+  <div> {{ minutos }} : {{ segundos}} </div>
+  <button>Començar</button> <button>Deter</button>
+</div>
+
+
+ <div class="col-sm-8">
+  <form class="form-horizontal" >
+    <div class="form-group">
+      <label for="task" class="control-label">Tarefa: </label>
+      <div>
+        <input type="text" class="form-control" id="task" name="task" [(ngModel)]="item">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="addTask()">Agregar Tarefa</button>
+    </div>
+  </form>
+</div>
+
+<div class="col-sm-8">
+  <h2>Lista de Tarefas</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Tarefa</th>
+        <th>Opção</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let task of tasks; let i = index">
+      <td> {{ task }} {{ item }}</td>
+      <td>
+        <a (click)="editTask(i)" class="btn btn-success">Editar Tarefa {{ edit }}</a>
+        <input type="text" class="form-control" id="edit" name="edit" [(ngModel)]="edit">
+        <a (click)="deletTask(i)" class="btn btn-danger">Deletar</a>
+      </td>
+     </tr>
+    </tbody>
+  </table>
+
+  <div class="col-sm-4">
+    <h2>Listagem</h2>
+    <form class="form-horizontal">
+
+    </form>
+  </div>
+</div>
